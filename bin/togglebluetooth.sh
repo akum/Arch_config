@@ -1,10 +1,10 @@
-#!/bin/bash                                                                                                                                                                    
-SYSFS="/sys/devices/platform/thinkpad_acpi/bluetooth_enable"                                                                                                                         
-case "$(cat "$SYSFS")" in                                                                                                                                                            
-  0)                                                                                                                                                                                 
-    echo 1 > "$SYSFS"                                                                                                                                                                
-    ;;                                                                                                                                                                               
-  1)                                                                                                                                                                                 
-    echo 0 > "$SYSFS"                                                                                                                                                                
-    ;;                                                                                                                                                                               
-esac
+#!/bin/bash
+
+btfile="/sys/devices/platform/thinkpad_acpi/bluetooth_enable"
+status=$(cat $btfile)
+
+if [ "$status" = "0" ]; then
+	echo 1 > "$btfile"
+else
+	echo 0 > "$btfile"
+fi
