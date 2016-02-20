@@ -18,7 +18,7 @@ sudo pacman-key --lsign-key 962DDE58
 
 sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
 
-sudo sh -c "cat >> /etc/pacman.conf2" <<EOT
+sudo sh -c "cat >> /etc/pacman.conf" <<EOT
 
 [infinality-bundle]
 Server = http://bohoomil.com/repo/$arch
@@ -27,10 +27,10 @@ Server = http://bohoomil.com/repo/$arch
 Server = http://bohoomil.com/repo/multilib/$arch
 EOT
 
-# Install packges
-# Generating the packages list: pacman -Qqe > package.list
+# Install packages
+# Generating the packages list: pacman -Qqe > package_list.txt
 git clone https://github.com/akum/Arch_config.git
-packer -Sy $(cat Arch_config/package.list)
+packer -Sy $(cat Arch_config/package_list.txt)
 cp Arch_config/.Xresources ~/
 cp -rf Arch_config/.config ~/
 sudo cp -rf Arch_config/bin/* /usr/local/bin/
