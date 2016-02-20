@@ -1,0 +1,71 @@
+# Disable motherboard speaker
+echo "blacklist pcspkr"| sudo tee -a /etc/modprobe.d/nobeep.conf
+sudo rmmod pcspkr
+
+# Install packer
+sudo pacman -S wget git expac jshon
+mkdir packer
+cd packer
+wget https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=packer -O PKGBUILD
+makepkg
+sudo pacman -U packer-*-any.pkg.tar.xz
+cd
+rm -rf packer/
+
+# Enable infinality fonts
+sudo pacman-key -r 962DDE58
+sudo pacman-key --lsign-key 962DDE58
+
+sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
+
+sudo sh -c "cat >> /etc/pacman.conf2" <<EOT
+
+[infinality-bundle]
+Server = http://bohoomil.com/repo/$arch
+
+[infinality-bundle-multilib]
+Server = http://bohoomil.com/repo/multilib/$arch
+EOT
+
+# Install packges
+# Generating the packages list: pacman -Qqe > package.list
+git clone https://github.com/akum/Arch_config.git
+packer -Sy $(cat Arch_config/package.list)
+cp Arch_config/.Xresources ~/
+cp -rf Arch_config/.config ~/
+sudo cp -rf Arch_config/bin/* /usr/local/bin/
+sudo cp -rf Arch_config/systemd/lidopen.service /etc/systemd/system/
+sudo sytemctl enable lidopen.service
+
+# font install
+git clone https://github.com/supermarin/YosemiteSanFranciscoFont.git
+sudo mkdir /usr/share/fonts/sanfrancisco
+sudo cp YosemiteSanFranciscoFont/*.ttf /usr/share/fonts/sanfrancisco/
+sudo cp -rf YosemiteSanFranciscoFont/Text\ Face\ \(alternate\)/ /usr/share/fonts/sanfrancisco/
+
+# Install urxvt theme plugin
+sudo wget https://raw.githubusercontent.com/felixr/urxvt-theme-switch/master/color-themes -O /usr/lib/urxvt/perl/color-themes
+
+# color theme
+git clone https://github.com/chriskempson/base16-xresources.git
+git clone https://github.com/robloach/base16-geany
+cp base16-xresources/*dark.256*.x* .themes/urxvt/
+cp base16-geany/*dark*.conf ~/.config/geany/colorschemes/
+
+# fstab nfs mount
+sudo mkdir /mnt/nas
+sudo sh -c "cat >> /etc/fstab" <<EOT
+
+//192.168.0.250/data /mnt/nas cifs auto,x-systemd.automount,guest,sec=ntlm 0 0
+EOT
+
+# sudo rules
+echo "%wheel ALL = NOPASSWD:/usr/local/bin/togglebluetooth.sh"| sudo tee -a /etc/sudoers.d/myOverrides 
+
+# cmus alsa fix
+cat <<EOF > ~/.config/cmus/rc
+set output_plugin=alsa
+set dsp.alsa.device=default
+set mixer.alsa.device=default
+set mixer.alsa.channel=Master
+EOF
