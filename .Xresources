@@ -15,8 +15,9 @@ URxvt.perl-ext-common:default,clipboard,color-themes
 URxvt.iso14755: False
 URxvt.keysym.Shift-Control-C: perl:clipboard:copy
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
-URxvt.clipboard.copycmd: xclip -i -selection clipboard
-URxvt.clipboard.pastecmd: xclip -o -selection clipboard
+URxvt.clipboard.autocopy: true
+URxvt.clipboard.copycmd: xsel -ib
+URxvt.clipboard.pastecmd: xsel -ob
 
 URxvt.color-themes.themedir:  ~/.themes/urxvt
 URxvt.color-themes.preprocessor: /usr/bin/cpp
