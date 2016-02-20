@@ -243,13 +243,10 @@ client.urgent			$base0A $base0A $base07 $base0A
 
 # Autostart
 exec --no-startup-id compton --config ~/.config/compton.conf
-exec --no-startup-id nitrogen --restore
 #exec --no-startup-id "setxkbmap -layout us,ca -option grp:lctrl_lshift_toggle"
 exec --no-startup-id i3-msg "workspace $ws6; exec urxvt -e cmus; workspace $ws1"
 exec --no-startup-id xrandr --setprovideroffloadsink radeon Intel
 exec --no-startup-id nm-applet
 exec --no-startup-id toggletouchpad.sh
-exec --no-startup-id qxkb
-#Screen Saver
-bindsym $mod+Shift+w exec i3lock-wrapper
+#exec --no-startup-id qxkb
 exec --no-startup-id xautolock -time 15 -locker 'i3lock-wrapper'
