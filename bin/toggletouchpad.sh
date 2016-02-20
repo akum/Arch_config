@@ -1,4 +1,6 @@
-status=$(synclient -l|grep Touch|cut -d'=' -f2)
+#!/bin/bash
+
+status=$(synclient -l|grep Touch| cut -d'=' -f2)
 
 if [ "$status" = " 1" ]; then
 	synclient TouchpadOff=0
