@@ -34,8 +34,8 @@ packer -Sy $(cat Arch_config/package_list.txt)
 cp Arch_config/.Xresources ~/
 cp -rf Arch_config/.config ~/
 sudo cp -rf Arch_config/bin/* /usr/local/bin/
-sudo cp -rf Arch_config/systemd/lidopen.service /etc/systemd/system/
-sudo sytemctl enable lidopen.service
+sudo cp -rf Arch_config/systemd/lock.service /etc/systemd/system/
+sudo sytemctl enable lock.service
 
 # font install
 git clone https://github.com/supermarin/YosemiteSanFranciscoFont.git
@@ -60,12 +60,5 @@ sudo sh -c "cat >> /etc/fstab" <<EOT
 EOT
 
 # sudo rules
-echo "%wheel ALL = NOPASSWD:/usr/local/bin/togglebluetooth.sh"| sudo tee -a /etc/sudoers.d/myOverrides 
+echo "%wheel ALL = NOPASSWD:/usr/local/bin/togglebluetooth.sh"| sudo tee -a /etc/sudoers.d/myOverrides
 
-# cmus alsa fix
-cat <<EOF > ~/.config/cmus/rc
-set output_plugin=alsa
-set dsp.alsa.device=default
-set mixer.alsa.device=default
-set mixer.alsa.channel=Master
-EOF
