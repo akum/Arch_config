@@ -1,5 +1,5 @@
 [Unit]
-Description=i3lock
+Description=Lock screen before going to sleep
 Before=sleep.target
 
 [Service]
