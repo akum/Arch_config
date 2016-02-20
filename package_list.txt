@@ -26,6 +26,7 @@ e2fsprogs
 expac
 f2fs-tools
 fakeroot
+fetch-git
 file
 filesystem
 findutils
@@ -89,8 +90,6 @@ mdadm
 mlocate
 nano
 netctl
-network-manager-applet
-networkmanager
 ntfs-3g
 ntp
 openssh
@@ -102,6 +101,7 @@ pciutils
 pcmciautils
 perl
 pkg-config
+plymouth
 polkit-gnome
 procps-ng
 psmisc
@@ -117,6 +117,7 @@ shadow
 sshfs
 steam
 sudo
+surf
 sysfsutils
 systemd-sysvcompat
 tar
@@ -140,7 +141,6 @@ wpa_actiond
 wpa_supplicant
 xarchiver
 xautolock
-xclip
 xdg-user-dirs
 xdg-utils
 xf86-input-keyboard
