@@ -2,17 +2,17 @@
 echo "blacklist pcspkr"| sudo tee -a /etc/modprobe.d/nobeep.conf
 sudo rmmod pcspkr
 
+# enable disable nano wrap
+sudo sed -i '/^#.*set nowrap/s/^#//' /etc/nanorc
+
 # Install packer
-sudo pacman -S wget git expac jshon
-mkdir packer
-cd packer
-wget https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=packer -O PKGBUILD
-makepkg
-sudo pacman -U packer-*-any.pkg.tar.xz
+eval {mkdir,cd}\ packer\;
+curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=packer
+makepkg -i -s
 cd
 rm -rf packer/
 
-# Enable infinality fonts
+# Enable infinality and multilib
 sudo pacman-key -r 962DDE58
 sudo pacman-key --lsign-key 962DDE58
 
@@ -28,7 +28,6 @@ Server = http://bohoomil.com/repo/multilib/$arch
 EOT
 
 # Install packages
-# Generating the packages list: pacman -Qqe > package_list.txt
 git clone https://github.com/akum/Arch_config.git
 packer -Sy $(cat Arch_config/package_list.txt)
 cp Arch_config/.Xresources ~/
@@ -49,6 +48,7 @@ sudo wget https://raw.githubusercontent.com/felixr/urxvt-theme-switch/master/col
 # color theme
 git clone https://github.com/chriskempson/base16-xresources.git
 git clone https://github.com/robloach/base16-geany
+mkdir -p ~/.themes/urxvt/
 cp base16-xresources/*dark.256*.x* .themes/urxvt/
 cp base16-geany/*dark*.conf ~/.config/geany/colorschemes/
 
@@ -56,7 +56,7 @@ cp base16-geany/*dark*.conf ~/.config/geany/colorschemes/
 sudo mkdir /mnt/nas
 sudo sh -c "cat >> /etc/fstab" <<EOT
 
-//192.168.0.250/data /mnt/nas cifs auto,x-systemd.automount,guest,sec=ntlm 0 0
+//192.168.0.250/data /mnt/nas cifs noauto,x-systemd.automount,guest,sec=ntlm 0 0
 EOT
 
 # sudo rules
