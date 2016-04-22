@@ -50,6 +50,7 @@ git clone https://github.com/chriskempson/base16-xresources.git
 git clone https://github.com/robloach/base16-geany
 mkdir -p ~/.themes/urxvt/
 cp base16-xresources/*dark.256*.x* .themes/urxvt/
+mkdir ~/.config/geany/colorschemes/
 cp base16-geany/*dark*.conf ~/.config/geany/colorschemes/
 
 # fstab nfs mount
