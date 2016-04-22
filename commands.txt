@@ -18,14 +18,14 @@ sudo pacman-key --lsign-key 962DDE58
 
 sudo sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
 
-sudo sh -c "cat >> /etc/pacman.conf" <<EOT
+sudo sh -c "cat >> pacman.conf" << "EOF"
 
 [infinality-bundle]
 Server = http://bohoomil.com/repo/$arch
 
 [infinality-bundle-multilib]
 Server = http://bohoomil.com/repo/multilib/$arch
-EOT
+EOF
 
 # Install packages
 git clone https://github.com/akum/Arch_config.git
