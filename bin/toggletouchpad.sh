@@ -1,9 +1,6 @@
 #!/bin/bash
-
-status=$(synclient -l|grep Touch| cut -d'=' -f2)
-
-if [ "$status" = " 1" ]; then
-	synclient TouchpadOff=0
+if synclient -l| grep "TouchpadOff .*=.*0"; then
+    synclient TouchpadOff=1
 else
-	synclient TouchpadOff=1
+    synclient TouchpadOff=0
 fi
