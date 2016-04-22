@@ -16,7 +16,7 @@ rm -rf packer/
 sudo pacman-key -r 962DDE58
 sudo pacman-key --lsign-key 962DDE58
 
-sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
+sudo sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
 
 sudo sh -c "cat >> /etc/pacman.conf" <<EOT
 
