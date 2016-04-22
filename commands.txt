@@ -8,7 +8,7 @@ sudo sed -i '/^#.*set nowrap/s/^#//' /etc/nanorc
 # Install packer
 eval {mkdir,cd}\ packer\;
 curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=packer
-makepkg -i -s
+makepkg -i -s --noconfirm
 cd
 rm -rf packer/
 
