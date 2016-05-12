@@ -1,0 +1,23 @@
+#!/bin/bash
+# Licensed under the terms of the GNU GENERAL PUBLIC LICENSE v2, or any later version.
+
+#
+# date pattern, more at 'man date'
+#
+
+DATE_PATTERN="%d/%m/%Y %H:%M"
+
+#
+# command after clicking
+#
+
+CAL="${BLOCK_INSTANCE:-gsimplecal}"
+
+#---------------------------------------------------------------
+
+if [ "${BLOCK_BUTTON}" == "1" ]; then 
+	i3-msg -q exec $CAL
+fi
+
+date +"$DATE_PATTERN"                                  
+
