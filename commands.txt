@@ -12,9 +12,13 @@ makepkg -i -s --noconfirm
 cd
 rm -rf packer/
 
-# Enable infinality and multilib
+# Enable infinality and multilib repo
 sudo pacman-key -r 962DDE58
 sudo pacman-key --lsign-key 962DDE58
+
+# Atom repo
+sudo pacman-key -r B0544167
+sudo pacman-key --lsign-key B0544167
 
 sudo sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
 
@@ -25,6 +29,10 @@ Server = http://bohoomil.com/repo/$arch
 
 [infinality-bundle-multilib]
 Server = http://bohoomil.com/repo/multilib/$arch
+
+[atom]
+Server = http://noaxiom.org/$repo/$arch
+
 EOF
 
 # Install packages
