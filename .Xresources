@@ -28,3 +28,15 @@ URxvt*color-themes.state-file: ~/.urxvt-theme
 URxvt*color-themes.autosave: 1
 URxvt*keysym.M-C-l:  perl:color-themes:load-state
 URxvt*keysym.M-C-s:  perl:color-themes:save-state
+! rofi
+rofi.modi: run
+rofi.lines: 10
+
+! element          bg             fg       altbg          hlbg     hlfg
+rofi.color-normal: argb:00000000, #ebdbb2, argb:00000000, #ebdbb2, #1d2021
+rofi.color-urgent: argb:00000000, #ebdbb2, argb:00000000, #ebdbb2, #1d2021
+rofi.color-active: argb:00000000, #ebdbb2, argb:00000000, #ebdbb2, #1d2021
+rofi.color-window: argb:00000000
+rofi.bw: 0
+rofi.padding: 50
+rofi.fuzzy: false
