@@ -1,6 +1,7 @@
+#include ".themes/urxvt/base16-default.dark.256.xresources"
+
 URxvt*depth: 32
 URxvt*transparent: true
-URxvt*shading:40
 URxvt*letterSpace: -1
 
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=15
