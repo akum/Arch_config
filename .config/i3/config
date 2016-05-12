@@ -26,11 +26,9 @@ set_from_resource $darkcyan    color6  #000000
 set_from_resource $cyan        color14 #000000
 set_from_resource $darkwhite   color7  #000000
 set_from_resource $white       color15 #000000
-
-# Use custom colors for black
-set $darkblack   #000000
-set $black       #212121
-set $transparent #00000000
+set_from_resource $colorless   color00 #000000
+set_from_resource $darkblack   colorB0 #000000
+set_from_resource $black       colorB8 #000000
 
 #                       BORDER      BACKGROUND  TEXT   INDICATOR   CHILD_BORDER
 client.focused          $yellow     $yellow     $black $yellow     $yellow
@@ -207,16 +205,16 @@ bar {
 	status_command i3blocks
 	i3bar_command i3bar -t
     colors {
-        statusline         $white
-        background         $transparent
-        separator          $yellow
+        statusline $white
+        background $colorless
+        separator  $yellow
 
-#       COMPONENT          BORDER       BACKGROUND   TEXT
-        focused_workspace  $transparent $yellow    $black
-        inactive_workspace $transparent $transparent $white
-        active_workspace   $transparent $transparent $white
-        urgent_workspace   $darkred     $darkred     $black
-        binding_mode       $transparent $transparent $white
+#       COMPONENT          BORDER      BACKGROUND  TEXT
+        focused_workspace  $colorless  $yellow     $black
+        inactive_workspace $colorless  $colorless  $white
+        active_workspace   $colorless  $colorless  $white
+        urgent_workspace   $darkred    $darkred    $black
+        binding_mode       $colorless  $colorless  $white
     }
 }
 
