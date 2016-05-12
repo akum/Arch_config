@@ -1,6 +1,7 @@
 acpid
 alsa-utils
 arandr
+atom
 autoconf
 automake
 bash
@@ -36,8 +37,6 @@ freetype2-infinality-ultimate
 gamin
 gawk
 gcc-multilib
-geany
-geany-plugins
 gettext
 git
 gitkraken
