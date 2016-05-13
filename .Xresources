@@ -1,4 +1,4 @@
-#include ".themes/urxvt/base16-atelierdune.dark.256.xresources"
+#include "/usr/share/base16/xresources/base16-atelierdune.dark.256.xresources"
 #define black #1d2021
 ! Custom transparent color
 *.color00: #00000000
@@ -24,7 +24,7 @@ URxvt*clipboard.copycmd: xsel -ib
 URxvt*clipboard.pastecmd: xsel -ob
 
 ! urxvt theme preview
-URxvt*color-themes.themedir:  ~/.themes/urxvt
+URxvt*color-themes.themedir: /usr/share/base16/xresources/
 URxvt*color-themes.preprocessor: /usr/bin/cpp
 URxvt*keysym.M-C-n:  perl:color-themes:next
 URxvt*keysym.M-C-p:  perl:color-themes:prev
