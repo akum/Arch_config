@@ -1,35 +1,37 @@
 #!/bin/bash
 # Licensed under the terms of the GNU GENERAL PUBLIC LICENSE v2, or any later version.
 
-#
-	# Display cmus song
-	array="$(cmus-remote -Q)"
-	artist=$(echo "$array" | grep ' artist ' | cut -d ' ' -f3-)
-	song=$(echo "$array" | grep title | cut -d ' ' -f3-)
+# Display cmus song
+array="$(cmus-remote -Q)"
+artist=$(echo "$array" | grep ' artist ' | cut -d ' ' -f3-)
+song=$(echo "$array" | grep title | cut -d ' ' -f3-)
+status=$(echo "$array" | grep status | cut -d ' ' -f2-)
 
-	time1=$(echo "$array" | grep duration | cut -d ' ' -f2)
-	time2=$(echo "$array" | grep position | cut -d ' ' -f2)
+time1=$(echo "$array" | grep duration | cut -d ' ' -f2)
+time2=$(echo "$array" | grep position | cut -d ' ' -f2)
 
-	if [ "$time1" = "" ]; then
-		playing=""
-	else
-		t1=$(date -u -d @${time1} +"%M:%S")
-		t2=$(date -u -d @${time2} +"%M:%S")
-		playing="($t2/$t1) $artist - $song "
-		playing="${playing//&}"
-	fi
+if [ "$time1" = "" ]; then
+	playing=""
+else
+	t1=$(date -u -d @${time1} +"%M:%S")
+	t2=$(date -u -d @${time2} +"%M:%S")
+	playing="($t2/$t1) $artist - $song "
+	playing="${playing//&}"
+fi
 
-#
+if [ "$status" = "playing" ]; then
+	icon=""
+else
+	icon=""
+fi
+
 # command after clicking
-#
 
 #CAL="${BLOCK_INSTANCE:-gsimplecal}"
 
-#---------------------------------------------------------------
-
-#if [ "${BLOCK_BUTTON}" == "1" ]; then 
+#if [ "${BLOCK_BUTTON}" == "1" ]; then
 #	i3-msg -q exec $CAL
 #fi
 
-echo $playing
-
+# Echo final string
+echo "$icon $playing"
