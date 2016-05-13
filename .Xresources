@@ -1,19 +1,21 @@
-#include ".themes/urxvt/base16-default.dark.256.xresources"
+#include ".themes/urxvt/base16-atelierdune.dark.256.xresources"
 #define black #1d2021
+! Custom transparent color
 *.color00: #00000000
 
+! urxvt settings
 URxvt*depth: 32
 URxvt*transparent: true
 URxvt*letterSpace: -1
-
 URxvt*font: xft:DejaVu Sans Mono:pixelsize=15
 URxvt*saveLines: 300000
 URxvt*scrollBar: false
 URxvt*cursorBlink: true
 URxvt*scrollTtyOutput: false
 URxvt*scrollTtyKeypress: true
-
 URxvt*perl-ext-common:default,clipboard,color-themes
+
+! urxvt clipboard settings
 URxvt*iso14755: False
 URxvt*keysym.Shift-Control-C: perl:clipboard:copy
 URxvt*keysym.Shift-Control-V: perl:clipboard:paste
@@ -28,7 +30,7 @@ URxvt*keysym.M-C-n:  perl:color-themes:next
 URxvt*keysym.M-C-p:  perl:color-themes:prev
 URxvt*color-themes.autosave: 0
 
-! rofi
+! rofi settings
 rofi.modi: run
 rofi.lines: 10
 
