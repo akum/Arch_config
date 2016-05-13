@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Display current brightness
+x=$(cat /sys/class/backlight/acpi_video0/brightness)
+x=$(echo "scale=2; $x/15 * 100"|bc)
+brightness="${x%.*}"
+
+echo "$brightness%"
