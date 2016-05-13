@@ -14,8 +14,11 @@ cp ~/.config/cmus/rc      $gitf/.config/cmus/
 cp ~/.config/i3/config    $gitf/.config/i3/
 cp ~/.config/compton.conf $gitf/.config/
 
-cp /usr/lib/i3blocks/music     $gitf/usr/lib/i3blocks/
-cp /usr/lib/i3blocks/simplecal $gitf/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/music      $gitf/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/volume     $gitf/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/battery    $gitf/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/simplecal  $gitf/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/brightness $gitf/usr/lib/i3blocks/
 
 cp /etc/default/grub            $gitf/etc/default/
 cp /etc/mkinitcpio.conf         $gitf/etc/
