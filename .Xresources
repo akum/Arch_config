@@ -1,8 +1,6 @@
 #include ".themes/urxvt/base16-default.dark.256.xresources"
 #define black #1d2021
 *.color00: #00000000
-*.colorB0: #000000
-*.colorB8: black
 
 URxvt*depth: 32
 URxvt*transparent: true
@@ -35,9 +33,9 @@ rofi.modi: run
 rofi.lines: 10
 
 ! element          bg             fg       altbg          hlbg     hlfg
-rofi.color-normal: argb:color00, base0A, argb:color00, base0A, black
-rofi.color-urgent: argb:color00, base0A, argb:color00, base0A, black
-rofi.color-active: argb:color00, base0A, argb:color00, base0A, black
+rofi.color-normal: argb:color00, base0A, argb:color00, base0A, base00
+rofi.color-urgent: argb:color00, base0A, argb:color00, base0A, base00
+rofi.color-active: argb:color00, base0A, argb:color00, base0A, base00
 rofi.color-window: argb:color00
 rofi.bw: 0
 rofi.padding: 50

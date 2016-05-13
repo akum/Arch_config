@@ -12,6 +12,8 @@
 set $mod Mod4
 
 # Colors
+set_from_resource $darkblack   color0  #000000
+set_from_resource $black       color08 #000000
 set_from_resource $darkred     color1  #000000
 set_from_resource $red         color9  #000000
 set_from_resource $darkgreen   color2  #000000
@@ -27,15 +29,13 @@ set_from_resource $cyan        color14 #000000
 set_from_resource $darkwhite   color7  #000000
 set_from_resource $white       color15 #000000
 set_from_resource $colorless   color00 #000000
-set_from_resource $darkblack   colorB0 #000000
-set_from_resource $black       colorB8 #000000
 
-#                       BORDER      BACKGROUND  TEXT   INDICATOR   CHILD_BORDER
-client.focused          $yellow     $yellow     $black $yellow     $yellow
-client.unfocused        $black      $black      $white $black      $black
-client.focused_inactive $black      $black      $white $black      $black
-client.urgent           $darkred    $darkred    $black $darkred    $darkred
-client.background       $black
+# Object                BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $yellow     $yellow     $darkblack  $yellow     $yellow
+client.unfocused        $darkblack  $darkblack  $white      $darkblack  $darkblack
+client.focused_inactive $darkblack  $darkblack  $white      $darkblack  $darkblack
+client.urgent           $darkred    $darkred    $darkblack  $darkred    $darkred
+client.background       $darkblack
 
 # Font for window titles. Will also be used by the bar unless a different font
 font pango:DejaVu Sans Mono 8
@@ -209,11 +209,11 @@ bar {
         background $colorless
         separator  $yellow
 
-#       COMPONENT          BORDER      BACKGROUND  TEXT
-        focused_workspace  $colorless  $yellow     $black
+#       Object             BORDER      BACKGROUND  TEXT
+        focused_workspace  $colorless  $yellow     $darkblack
         inactive_workspace $colorless  $colorless  $white
         active_workspace   $colorless  $colorless  $white
-        urgent_workspace   $darkred    $darkred    $black
+        urgent_workspace   $darkred    $darkred    $darkblack
         binding_mode       $colorless  $colorless  $white
     }
 }
