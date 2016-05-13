@@ -219,9 +219,11 @@ bar {
 }
 
 # Audio controls
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
-bindsym XF86AudioMute exec amixer -q set Master toggle
+set $VolSignal pkill -RTMIN+10 i3blocks
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute && $VolSignal
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute && $VolSignal
+
+bindsym XF86AudioMute exec amixer -q set Master toggle && $VolSignal
 
 # Thinkpad controls
 bindsym $mod+t exec /usr/local/bin/toggletouchpad.sh
