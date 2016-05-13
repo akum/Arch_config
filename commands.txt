@@ -42,7 +42,7 @@ cp Arch_config/.Xresources ~/
 cp -rf Arch_config/.config ~/
 sudo cp -rf Arch_config/bin/* /usr/local/bin/
 sudo cp -rf Arch_config/systemd/lock.service /etc/systemd/system/
-sudo sytemctl enable lock.service
+sudo systemctl enable lock.service
 
 # font install
 git clone https://github.com/supermarin/YosemiteSanFranciscoFont.git
