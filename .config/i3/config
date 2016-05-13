@@ -225,7 +225,7 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute && $VolSignal
 bindsym XF86AudioMute exec amixer -q set Master toggle && $VolSignal
 
 # Brightness controls
-set $BriSignal pkill -RTMIN+9 i3blocks
+set $BriSignal sleep 0.1 && pkill -RTMIN+9 i3blocks
 bindsym XF86MonBrightnessUp   exec $BriSignal
 bindsym XF86MonBrightnessDown exec $BriSignal
 
