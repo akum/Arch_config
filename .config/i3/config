@@ -205,14 +205,14 @@ bar {
 	status_command i3blocks
 	i3bar_command i3bar -t
     colors {
-        statusline $white
-        background $colorless
+        statusline $darkwhite
+        background $darkblack
         separator  $yellow
 
 #       Object             BORDER      BACKGROUND  TEXT
-        focused_workspace  $colorless  $yellow     $darkblack
-        inactive_workspace $colorless  $colorless  $white
-        active_workspace   $colorless  $colorless  $white
+        focused_workspace  $colorless  $yellow     $black
+        inactive_workspace $colorless  $darkblack  $darkwhite
+        active_workspace   $colorless  $darkblack  $white
         urgent_workspace   $darkred    $darkred    $darkblack
         binding_mode       $colorless  $colorless  $white
     }
