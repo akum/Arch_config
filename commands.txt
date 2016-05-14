@@ -51,7 +51,7 @@ sudo cp YosemiteSanFranciscoFont/*.ttf /usr/share/fonts/sanfrancisco/
 sudo cp -rf YosemiteSanFranciscoFont/Text\ Face\ \(alternate\)/ /usr/share/fonts/sanfrancisco/
 
 # Install urxvt theme plugin
-sudo curl https://raw.githubusercontent.com/felixr/urxvt-theme-switch/master/color-themes -o /usr/lib/urxvt/perl/color-themes
+sudo curl https://raw.githubusercontent.com/s-monette/urxvt-theme-switch/master/color-themes /usr/lib/urxvt/perl/color-themes
 
 # fstab nfs mount
 sudo mkdir /mnt/nas
@@ -62,4 +62,3 @@ EOT
 
 # sudo rules
 echo "%wheel ALL = NOPASSWD:/usr/local/bin/togglebluetooth.sh"| sudo tee -a /etc/sudoers.d/myOverrides
-
