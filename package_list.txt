@@ -1,9 +1,11 @@
+acpi
 acpid
 alsa-utils
 arandr
 atom
 autoconf
 automake
+base16-git
 bash
 bash-completion
 bc
@@ -47,6 +49,7 @@ gnome-keyring
 grep
 groff
 grub
+gsimplecal
 gst-libav
 gst-plugins-good
 gst-plugins-ugly
@@ -55,6 +58,7 @@ gvfs-afc
 gvfs-smb
 gzip
 i3-gaps-next-git
+i3blocks-gaps-git
 i3lock
 i3lock-wrapper
 i3status
@@ -79,7 +83,7 @@ linux
 lm_sensors
 logrotate
 lvm2
-lxappearance
+lxappearance-gtk3
 m4
 make
 man-db
@@ -89,8 +93,11 @@ mdadm
 mlocate
 nano
 netctl
+network-manager-applet
+networkmanager
 ntfs-3g
 ntp
+numix-themes
 openssh
 os-prober
 packer
@@ -106,7 +113,6 @@ procps-ng
 psmisc
 python2-xdg
 reiserfsprogs
-remmina-plugin-rdesktop
 rofi
 rp-pppoe
 rxvt-unicode
@@ -135,9 +141,7 @@ vibrancy-colors
 w3m
 wget
 which
-wireless_tools
 wpa_actiond
-wpa_supplicant
 xarchiver
 xautolock
 xdg-user-dirs
