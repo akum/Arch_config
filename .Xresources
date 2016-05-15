@@ -26,22 +26,22 @@ URxvt*clipboard.copycmd: xsel -ib
 URxvt*clipboard.pastecmd: xsel -ob
 
 ! urxvt theme preview
-URxvt.keysym.M-C-s:  perl:color-themes:save-state
-URxvt.color-themes.state-file: ~/.urxvt-theme
+URxvt*keysym.M-C-s:  perl:color-themes:save-state
+URxvt*color-themes.state-file: ~/.urxvt-theme
 URxvt*color-themes.preprocessor: /usr/bin/cpp
 URxvt*keysym.M-C-n:  perl:color-themes:next
 URxvt*keysym.M-C-p:  perl:color-themes:prev
 URxvt*color-themes.autosave: 1
 
 ! rofi settings
-rofi.modi: run
-rofi.lines: 10
+rofi*modi: run
+rofi*lines: 10
 
 ! element          bg             fg       altbg          hlbg     hlfg
-rofi.color-normal: argb:color00, base0A, argb:color00, base0A, base00
-rofi.color-urgent: argb:color00, base0A, argb:color00, base0A, base00
-rofi.color-active: argb:color00, base0A, argb:color00, base0A, base00
-rofi.color-window: argb:color00
-rofi.bw: 0
-rofi.padding: 50
-rofi.fuzzy: false
+rofi*color-normal: argb:color00, base08, argb:color00, base08, base00
+rofi*color-urgent: argb:color00, base08, argb:color00, base08, base00
+rofi*color-active: argb:color00, base08, argb:color00, base08, base00
+rofi*color-window: argb:color00
+rofi*bw: 0
+rofi*padding: 50
+rofi*fuzzy: false
