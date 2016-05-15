@@ -41,7 +41,7 @@ packer -Sy $(cat Arch_config/package_list.txt)
 cp Arch_config/.Xresources ~/
 cp -rf Arch_config/.config ~/
 sudo cp -rf Arch_config/bin/* /usr/local/bin/
-sudo cp -rf Arch_config/systemd/lock.service /etc/systemd/system/
+sudo cp -rf Arch_config/etc/systemd/system/lock.service /etc/systemd/system/
 sudo systemctl enable lock.service
 
 # font install
