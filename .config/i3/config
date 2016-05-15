@@ -32,9 +32,9 @@ set_from_resource $colorless   color00 #000000
 
 # Object                BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
 client.focused          $yellow     $yellow     $darkblack  $yellow     $yellow
-client.unfocused        $darkblack  $darkblack  $white      $darkblack  $darkblack
-client.focused_inactive $darkblack  $darkblack  $white      $darkblack  $darkblack
-client.urgent           $darkred    $darkred    $darkblack  $darkred    $darkred
+client.unfocused        $colorless  $darkblack  $white      $darkblack  $darkblack
+client.focused_inactive $yellow     $darkblack  $white      $darkblack  $darkblack
+client.urgent           $red        $red        $darkblack  $yellow    	$yellow
 client.background       $darkblack
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -203,18 +203,18 @@ smart_borders on
 # Start i3bar to display a workspace bar
 bar {
 	status_command i3blocks
-	i3bar_command i3bar -t
+	i3bar_command i3bar
     colors {
         statusline $darkwhite
         background $darkblack
         separator  $yellow
 
 #       Object             BORDER      BACKGROUND  TEXT
-        focused_workspace  $colorless  $yellow     $black
-        inactive_workspace $colorless  $darkblack  $darkwhite
-        active_workspace   $colorless  $darkblack  $white
-        urgent_workspace   $darkred    $darkred    $darkblack
-        binding_mode       $colorless  $colorless  $white
+        focused_workspace  $darkblack  $yellow     $black
+        inactive_workspace $darkblack  $darkblack  $darkwhite
+        active_workspace   $darkblack  $darkblack  $white
+        urgent_workspace   $darkblack  $red        $black
+        binding_mode       $darkblack  $magenta    $black
     }
 }
 
