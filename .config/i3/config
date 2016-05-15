@@ -52,6 +52,9 @@ bindsym $mod+Shift+q kill
 # start dmenu (a program launcher)
 bindsym $mod+d exec rofi -show run -bw 0
 
+# lanuch spacefm (file manager)
+bindsym $mod+e exec nautilus
+
 # Change focus
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
@@ -76,7 +79,7 @@ bindsym $mod+f fullscreen toggle
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $mod+x layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+space floating toggle
