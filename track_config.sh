@@ -20,10 +20,11 @@ cp /usr/lib/i3blocks/battery    $gitf/usr/lib/i3blocks/
 cp /usr/lib/i3blocks/simplecal  $gitf/usr/lib/i3blocks/
 cp /usr/lib/i3blocks/brightness $gitf/usr/lib/i3blocks/
 
-cp /etc/default/grub            $gitf/etc/default/
-cp /etc/mkinitcpio.conf         $gitf/etc/
-cp /etc/$service/lock.service   $gitf/etc/$service/
-cp /etc/plymouth/plymouthd.conf $gitf/etc/plymouth/
+cp /etc/default/grub               $gitf/etc/default/
+cp /etc/mkinitcpio.conf            $gitf/etc/
+cp /etc/$service/lock.service      $gitf/etc/$service/
+cp /etc/plymouth/plymouthd.conf    $gitf/etc/plymouth/
+cp /etc/lightdm/lightdm-gtk-*.conf $gitf/etc/lightdm/
 
 cp $lbin/toggletouchpad.sh  $gitf/bin/
 cp $lbin/togglebluetooth.sh $gitf/bin/
