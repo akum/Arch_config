@@ -29,7 +29,6 @@ e2fsprogs
 expac
 f2fs-tools
 fakeroot
-fetch-git
 file
 filesystem
 findutils
@@ -92,6 +91,7 @@ mate-themes
 mdadm
 mlocate
 nano
+neofetch
 netctl
 network-manager-applet
 networkmanager
