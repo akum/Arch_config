@@ -1,8 +1,7 @@
 #include ".urxvt-theme"
 
-#define black #1d2021
-#define bgc base00
-#define fgc base07
+#define bgc background
+#define fgc foreground
 #define hlc base0A
 ! Custom transparent color
 *.color00: #00000000
