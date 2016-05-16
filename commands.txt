@@ -62,3 +62,6 @@ EOT
 
 # sudo rules
 echo "%wheel ALL = NOPASSWD:/usr/local/bin/togglebluetooth.sh"| sudo tee -a /etc/sudoers.d/myOverrides
+
+# Enable session manager
+systemctl enable lightdm
