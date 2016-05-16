@@ -28,12 +28,13 @@ URxvt*clipboard.copycmd: xsel -ib
 URxvt*clipboard.pastecmd: xsel -ob
 
 ! urxvt theme preview
-URxvt*keysym.M-C-s:  perl:color-themes:save-state
-URxvt*color-themes.state-file: ~/.urxvt-theme
+URxvt*color-themes.themedir: /usr/share/base16/xresources
 URxvt*color-themes.preprocessor: /usr/bin/cpp
 URxvt*keysym.M-C-n:  perl:color-themes:next
 URxvt*keysym.M-C-p:  perl:color-themes:prev
-URxvt*color-themes.autosave: 1
+URxvt*color-themes.state-file: ~/.urxvt-theme
+URxvt*color-themes.autosave: 0
+URxvt*keysym.M-C-s:  perl:color-themes:save-state
 
 ! rofi settings
 rofi*modi: run
