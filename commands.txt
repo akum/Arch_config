@@ -22,7 +22,7 @@ sudo pacman-key --lsign-key B0544167
 
 sudo sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
 
-sudo sh -c "cat >> pacman.conf" << "EOF"
+sudo sh -c "cat >> /etc/pacman.conf" << "EOF"
 
 [infinality-bundle]
 Server = http://bohoomil.com/repo/$arch
