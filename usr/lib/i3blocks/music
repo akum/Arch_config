@@ -35,3 +35,12 @@ fi
 
 # Echo final string
 echo "$icon $playing"
+# Commands on click event
+case ${BLOCK_BUTTON} in
+	# Left click, next song
+	"1") cmus-remote -n ;;
+	# Middle click, pause toggle
+	"2") cmus-remote -u ;;
+	# Right click, previous song
+	"3") cmus-remote -r ;;
+esac
