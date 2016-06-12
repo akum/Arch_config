@@ -43,7 +43,7 @@ URxvt*keysym.M-C-s:  perl:color-themes:save-state
 rofi*modi: run
 rofi*lines: 10
 
-! element          bg             fg       altbg          hlbg     hlfg
+! element          bg            fg   altbg         hlbg hlfg
 rofi*color-normal: argb:color00, hlc, argb:color00, hlc, bgc
 rofi*color-urgent: argb:color00, hlc, argb:color00, hlc, bgc
 rofi*color-active: argb:color00, hlc, argb:color00, hlc, bgc
