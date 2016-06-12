@@ -20,10 +20,10 @@ time2="${array[3]}"
 song=${array[6]#* }
 
 # Build string for song info
-if [ "${array[3]%% *}" = "artist" ]; then
+if [ "${array[4]%% *}" = "artist" ]; then
 	artist="${array[4]#* }"
 	playing="$artist - $song"
-else # If no tag are set, instead display file name
+else # If no tag are set, display file name
 	file=${file%.*}
 	file=${file##*/}
 	playing="$file"
