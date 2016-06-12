@@ -18,18 +18,17 @@ else
 	playing="${playing//&}"
 fi
 
-if [ "$status" = "playing" ]; then
-	icon=""
-else
-	icon=""
-fi
-
-# command after clicking
 # Parse running time of song
 t1=$(date -u -d @${time1} +"%M:%S")
 t2=$(date -u -d @${time2} +"%M:%S")
 duration="($t2/$t1)"
 
+# Set icon depending of cmus status
+case $status in
+	"playing") icon="" ;;
+	"paused") icon="" ;;
+	"stopped"|*) icon="" playing="Music stopped" ;;
+esac
 
 # Commands on click event
 case ${BLOCK_BUTTON} in
