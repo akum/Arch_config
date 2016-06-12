@@ -15,7 +15,6 @@ if [ "$time1" = "" ]; then
 else
 	t1=$(date -u -d @${time1} +"%M:%S")
 	t2=$(date -u -d @${time2} +"%M:%S")
-	playing="($t2/$t1) $artist - $song "
 	playing="${playing//&}"
 fi
 
@@ -26,15 +25,12 @@ else
 fi
 
 # command after clicking
+# Parse running time of song
+t1=$(date -u -d @${time1} +"%M:%S")
+t2=$(date -u -d @${time2} +"%M:%S")
+duration="($t2/$t1)"
 
-#CAL="${BLOCK_INSTANCE:-gsimplecal}"
 
-#if [ "${BLOCK_BUTTON}" == "1" ]; then
-#	i3-msg -q exec $CAL
-#fi
-
-# Echo final string
-echo "$icon $playing"
 # Commands on click event
 case ${BLOCK_BUTTON} in
 	# Left click, next song
@@ -44,3 +40,6 @@ case ${BLOCK_BUTTON} in
 	# Right click, previous song
 	"3") cmus-remote -r ;;
 esac
+
+# Return final string
+echo "$icon $duration $playing"
