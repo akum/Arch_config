@@ -1,32 +1,32 @@
 #!/bin/bash
 
-gitf="$HOME/Arch_config"
-lbin="/usr/local/bin"
+git_folder="$HOME/Arch_config"
+local_bin="/usr/local/bin"
 service="systemd/system"
 
-cp ~/.toprc         $gitf/
-cp ~/.bashrc        $gitf/
-cp ~/.gtkrc-2.0     $gitf/
-cp ~/.Xresources    $gitf/
-cp ~/.i3blocks.conf $gitf/
+cp ~/.toprc         $git_folder/
+cp ~/.bashrc        $git_folder/
+cp ~/.gtkrc-2.0     $git_folder/
+cp ~/.Xresources    $git_folder/
+cp ~/.i3blocks.conf $git_folder/
 
-cp ~/.config/cmus/rc      $gitf/.config/cmus/
-cp ~/.config/i3/config    $gitf/.config/i3/
-cp ~/.config/compton.conf $gitf/.config/
+cp ~/.config/cmus/rc      $git_folder/.config/cmus/
+cp ~/.config/i3/config    $git_folder/.config/i3/
+cp ~/.config/compton.conf $git_folder/.config/
 
-cp /usr/lib/i3blocks/music      $gitf/usr/lib/i3blocks/
-cp /usr/lib/i3blocks/volume     $gitf/usr/lib/i3blocks/
-cp /usr/lib/i3blocks/battery    $gitf/usr/lib/i3blocks/
-cp /usr/lib/i3blocks/simplecal  $gitf/usr/lib/i3blocks/
-cp /usr/lib/i3blocks/brightness $gitf/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/music      $git_folder/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/volume     $git_folder/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/battery    $git_folder/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/simplecal  $git_folder/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/brightness $git_folder/usr/lib/i3blocks/
 
-cp /etc/default/grub               $gitf/etc/default/
-cp /etc/mkinitcpio.conf            $gitf/etc/
-cp /etc/$service/lock.service      $gitf/etc/$service/
-cp /etc/plymouth/plymouthd.conf    $gitf/etc/plymouth/
-cp /etc/lightdm/lightdm-gtk-*.conf $gitf/etc/lightdm/
+cp /etc/default/grub               $git_folder/etc/default/
+cp /etc/mkinitcpio.conf            $git_folder/etc/
+cp /etc/$service/lock.service      $git_folder/etc/$service/
+cp /etc/plymouth/plymouthd.conf    $git_folder/etc/plymouth/
+cp /etc/lightdm/lightdm-gtk-*.conf $git_folder/etc/lightdm/
 
-cp $lbin/toggletouchpad.sh  $gitf/bin/
-cp $lbin/togglebluetooth.sh $gitf/bin/
+cp $local_bin/toggletouchpad.sh  $git_folder/bin/
+cp $local_bin/togglebluetooth.sh $git_folder/bin/
 
-pacman -Qqe > $gitf/package_list.txt
+pacman -Qqe > $git_folder/package_list.txt
