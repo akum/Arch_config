@@ -5,12 +5,13 @@ sudo rmmod pcspkr
 # Disable nano line wrap
 sudo sed -i '/^#.*set nowrap/s/^#//' /etc/nanorc
 
-# Install packer
-eval {mkdir,cd}\ packer\;
-curl -o PKGBUILD https://aur.archlinux.org/cgit/aur.git/plain/PKGBUILD?h=packer
-makepkg -i -s --noconfirm
+# Install pacaur
+sudo pacman -S wget
+eval {mkdir,cd}\ pacaur\;
+wget https://gist.githubusercontent.com/rumpelsepp/d646750910be19332753/raw/a89baaafebc5ad4aeb0d9755a27c7f297d4dfbea/install-pacaur.sh
+bash install-pacaur.sh
 cd
-rm -rf packer/
+rm -rf pacaur/
 
 # Enable multi libs
 sudo sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
