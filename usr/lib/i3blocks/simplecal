@@ -11,7 +11,7 @@ DATE_PATTERN="%d/%m/%Y %H:%M"
 # command after clicking
 #
 
-CAL="${BLOCK_INSTANCE:-gsimplecal}"
+CAL="${BLOCK_INSTANCE:-gnome-calendar}"
 
 #---------------------------------------------------------------
 
