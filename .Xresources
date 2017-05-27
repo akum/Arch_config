@@ -1,4 +1,4 @@
-#include ".urxvt-theme"
+#include "/usr/share/base16/xresources/base16-atelierforest.dark.256.xresources"
 
 #define bgc background
 #define fgc foreground
@@ -6,18 +6,25 @@
 ! Custom transparent color
 *.color00: #00000000
 
-! urxvt settings
-URxvt*depth: 32
-URxvt*transparent: true
+Xft.dpi:        96
+Xft.antialias:  true
+Xft.rgba:       rgb
+Xft.lcdfilter:  lcddefault
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+URxvt.lineSpace: 1
+
+! URxvt*font: xft:DejaVu Sans Mono:pixelsize=15
+URxvt*font:xft:DejaVu\ Sans\ Mono:pixelsize=14:antialias=true,xft:DejaVu\ Sans\ Mono:pixelsize=14:antialias=true
+URxvt*scrollBar: false
 URxvt*letterSpace: -1
-URxvt*saveLines:   300000
-URxvt*scrollBar:   false
+URxvt*transparent: true
 URxvt*cursorBlink: true
 URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
-URxvt*font: xft:DejaVu Sans Mono:pixelsize=15
-URxvt*perl-ext-common:default,clipboard,color-themes
+URxvt*perl-ext-common:default,clipboard
+URxvt.cutchars: ""''&()*,;<=>?@[]{|}.:+-
 
 ! urxvt clipboard settings
 URxvt*iso14755: False
@@ -26,18 +33,6 @@ URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 URxvt*clipboard.autocopy: true
 URxvt*clipboard.copycmd: xsel -ib
 URxvt*clipboard.pastecmd: xsel -ob
-
-! urxvt theme preview
-URxvt*color-themes.themedir: /usr/share/base16/xresources
-URxvt*color-themes.preprocessor: /usr/bin/cpp
-URxvt*color-themes.atom_dir: ~/.atom
-URxvt*color-themes.atom_update: 1
-URxvt*color-themes.i3_update: 1
-URxvt*keysym.M-C-n:  perl:color-themes:next
-URxvt*keysym.M-C-p:  perl:color-themes:prev
-URxvt*color-themes.state-file: ~/.urxvt-theme
-URxvt*color-themes.autosave: 0
-URxvt*keysym.M-C-s:  perl:color-themes:save-state
 
 ! rofi settings
 rofi*modi: run
