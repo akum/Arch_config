@@ -14,9 +14,9 @@ cp ~/.config/cmus/rc      $git_folder/.config/cmus/
 cp ~/.config/i3/config    $git_folder/.config/i3/
 cp ~/.config/compton.conf $git_folder/.config/
 
-cp /usr/lib/i3blocks/music      $git_folder/usr/lib/i3blocks/
-cp /usr/lib/i3blocks/volume     $git_folder/usr/lib/i3blocks/
-cp /usr/lib/i3blocks/battery    $git_folder/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/cmus       $git_folder/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/vol        $git_folder/usr/lib/i3blocks/
+cp /usr/lib/i3blocks/batt       $git_folder/usr/lib/i3blocks/
 cp /usr/lib/i3blocks/simplecal  $git_folder/usr/lib/i3blocks/
 cp /usr/lib/i3blocks/brightness $git_folder/usr/lib/i3blocks/
 
