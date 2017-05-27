@@ -2,7 +2,7 @@
 echo "blacklist pcspkr"| sudo tee -a /etc/modprobe.d/nobeep.conf
 sudo rmmod pcspkr
 
-# enable disable nano wrap
+# Disable nano line wrap
 sudo sed -i '/^#.*set nowrap/s/^#//' /etc/nanorc
 
 # Install packer
@@ -12,46 +12,17 @@ makepkg -i -s --noconfirm
 cd
 rm -rf packer/
 
-# Enable infinality and multilib repo
-sudo pacman-key -r 962DDE58
-sudo pacman-key --lsign-key 962DDE58
-
-# Atom repo
-sudo pacman-key -r B0544167
-sudo pacman-key --lsign-key B0544167
-
+# Enable multi libs
 sudo sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
-
-sudo sh -c "cat >> /etc/pacman.conf" << "EOF"
-
-[infinality-bundle]
-Server = http://bohoomil.com/repo/$arch
-
-[infinality-bundle-multilib]
-Server = http://bohoomil.com/repo/multilib/$arch
-
-[atom]
-Server = http://noaxiom.org/$repo/$arch
-
-EOF
 
 # Install packages
 git clone https://github.com/akum/Arch_config.git
-packer -Sy $(cat Arch_config/package_list.txt)
-cp Arch_config/.Xresources ~/
-cp -rf Arch_config/.config ~/
-sudo cp -rf Arch_config/bin/* /usr/local/bin/
-sudo cp -rf Arch_config/etc/systemd/system/lock.service /etc/systemd/system/
+packer -Sy $(cat ~/Arch_config/package_list.txt)
+cp ~/Arch_config/.Xresources ~/
+cp -rf ~/Arch_config/.config ~/
+sudo cp -rf ~/Arch_config/bin/* /usr/local/bin/
+sudo cp -rf ~/Arch_config/etc/systemd/system/lock.service /etc/systemd/system/
 sudo systemctl enable lock.service
-
-# font install
-git clone https://github.com/supermarin/YosemiteSanFranciscoFont.git
-sudo mkdir /usr/share/fonts/sanfrancisco
-sudo cp YosemiteSanFranciscoFont/*.ttf /usr/share/fonts/sanfrancisco/
-sudo cp -rf YosemiteSanFranciscoFont/Text\ Face\ \(alternate\)/ /usr/share/fonts/sanfrancisco/
-
-# Install urxvt theme plugin
-sudo curl https://raw.githubusercontent.com/s-monette/urxvt-theme-switch/master/color-themes /usr/lib/urxvt/perl/color-themes
 
 # fstab nfs mount
 sudo mkdir /mnt/nas
