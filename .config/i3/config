@@ -234,7 +234,7 @@ bindsym XF86AudioPlay exec cmus-remote -u
 # Autostart
 #exec --no-startup-id "setxkbmap -layout us,ca -option grp:lctrl_lshift_toggle"
 #exec --no-startup-id qxkb
-exec --no-startup-id feh --bg-fill /home/monettes/Downloads/eHFJS.png
+exec --no-startup-id feh --bg-fill /usr/share/pixmaps/wallhaven-2936.png
 exec --no-startup-id nm-applet
 exec --no-startup-id compton --config ~/.config/compton.conf
 exec --no-startup-id i3-msg "workspace $ws6; exec urxvt -e cmus; workspace $ws1"

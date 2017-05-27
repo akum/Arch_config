@@ -36,3 +36,6 @@ echo "%wheel ALL = NOPASSWD:/usr/local/bin/togglebluetooth.sh"| sudo tee -a /etc
 
 # Enable session manager
 systemctl enable lightdm
+
+# Download wallpaper
+sudo wget https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2936.png -P /usr/share/pixmaps/
