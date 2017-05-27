@@ -3,8 +3,8 @@
 
 include "/home/monettes/.gtkrc-2.0.mine"
 gtk-theme-name="Numix"
-gtk-icon-theme-name="Vibrancy-NonMono-Dark-Yellow"
-gtk-font-name="SFNS Display 11"
+gtk-icon-theme-name="Vibrancy-NonMono-Light-Yellow"
+gtk-font-name="DejaVu Sans 11"
 gtk-cursor-theme-name="Adwaita"
 gtk-cursor-theme-size=0
 gtk-toolbar-style=GTK_TOOLBAR_TEXT
