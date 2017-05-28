@@ -1,0 +1,83 @@
+# Enable SSH
+systemctl start sshd
+passwd
+
+# Update the system clock
+timedatectl set-ntp true
+
+# Create partitions
+cgdisk /dev/sdX
+1 100MB EFI partition # Hex code ef00
+2 100% size partiton # (to be encrypted) Hex code 8300
+
+# Format partions
+mkfs.vfat -F32 /dev/sda1
+mkfs.ext4 /dev/sda2
+
+# Mount the new system
+mount /dev/sda2 /mnt
+mkdir /mnt/boot/
+mount /dev/sda1 /mnt/boot/
+
+# Sorting mirrors
+grep -A1 --no-group-separator Canada /etc/pacman.d/mirrorlist > /etc/pacman.d/mirrorlist.backup
+rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
+
+# Install the system
+pacstrap /mnt base base-devel grub efibootmgr wget openssh
+
+# Generate the fstab file
+genfstab -U /mnt >> /mnt/etc/fstab
+
+# Change root into the new system:
+arch-chroot /mnt
+
+# Enable DHCP
+systemctl enable dhcpcd@enp0s3.service
+
+# Enable SSH
+systemctl enable sshd
+
+# Setup system clock
+ln -s /usr/share/zoneinfo/EST5EDT /etc/localtime
+hwclock --systohc --utc
+
+# Set the hostname
+echo Arch-VM > /etc/hostname
+
+# Update locale
+echo LANG=en_US.UTF-8 >> /etc/locale.conf
+echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen
+echo "fr_CA.UTF-8 UTF-8" >> /etc/locale.gen
+locale-gen
+
+# Set password for root
+passwd
+
+# Add real user remove -s flag if you don't whish to use zsh
+user=CHANGE_ME
+useradd -m -g users -G wheel $user
+passwd $user
+
+# Configure mkinitcpio with modules needed for the initrd image
+nano /etc/mkinitcpio.conf
+uncomment "lz4"
+
+# Regenerate initrd image
+mkinitcpio -p linux
+
+# Install bootloader
+grub-install /dev/sda --target=x86_64-efi --efi-directory=/boot
+grub-mkconfig -o /boot/grub/grub.cfg
+
+# Configure Bootloader for VirtualBox
+cp /boot/EFI/arch/grubx64.efi /boot/EFI/boot/bootx64.efi
+
+# Exit new system and go into the cd shell
+exit
+
+# Unmount all partitions
+umount -R /mnt
+
+# Reboot into the new system, don't forget to remove the cd/usb
+reboot
