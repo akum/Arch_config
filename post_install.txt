@@ -1,17 +1,68 @@
-# Install xorg
-sudo pacman -S xorg-server xorg-xrdb
+# Disable motherboard speaker
+echo "blacklist pcspkr"| sudo tee -a /etc/modprobe.d/nobeep.conf
+sudo rmmod pcspkr
 
-# Install Vbox guess tools (virtualbox-guest-modules-arch)
-sudo pacman -S virtualbox-guest-utils
+# Disable nano line wrap
+sudo sed -i '/^#.*set nowrap/s/^#//' /etc/nanorc
+
+# Install pacaur
+sudo pacman --noconfirm -S wget
+eval {mkdir,cd}\ pacaur\;
+wget https://gist.githubusercontent.com/rumpelsepp/d646750910be19332753/raw/a89baaafebc5ad4aeb0d9755a27c7f297d4dfbea/install-pacaur.sh
+bash install-pacaur.sh
+cd
+rm -rf pacaur/
+
+# Enable multi libs
+sudo sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
+sudo pacman -Sy
+
+# Install xorg
+sudo pacman --noconfirm -S xorg-server xorg-xrdb
+
+# Install Vbox guess tools
+sudo pacman --noconfirm -S virtualbox-guest-utils virtualbox-guest-modules-arch
 
 # Install login manager
-sudo pacman -S lightdm lightdm-gtk-greeter
+sudo pacman --noconfirm -S lightdm lightdm-gtk-greeter
 sudo systemctl enable lightdm
 
-sudo nano /etc/lightdm/lightdm.conf
-    (changed '#greeter-session = Insert session here' to 'greeter-session = lightdm-gtk-greeter')
-sudo nano /etc/lightdm/lightdm-gtk-greeter.conf
-    (changed '#background=' to 'background=/usr/share/pixmaps/wallhaven-2936.png')
+# Configure lightdm gtk-greeter
+sudo sed -i 's/example-gtk-gnome/lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
+sudo sed -i '/^#.*lightdm-gtk-greeter/s/^#//' /etc/lightdm/lightdm.conf
 
 # Install i3
-pacaur -S i3-gaps i3blocks rofi base16-git rxvt-unicode urxvt-perls ttf-dejavu ttf-font-awesome numix-gtk-theme lxappearance-gtk3 vibrancy-colors compton
+pacaur --noedit --noconfirm -S i3-gaps i3blocks rofi base16-git rxvt-unicode urxvt-perls ttf-dejavu ttf-font-awesome numix-gtk-theme lxappearance-gtk3 vibrancy-colors compton
+
+# Copy files
+git clone https://github.com/s-monette/Arch_config.git
+cp ~/Arch_config/.Xresources ~/
+xrdb ~/.Xresources
+cp ~/Arch_config/.config ~/
+cp ~/Arch_config/.toprc ~/
+cp ~/Arch_config/.bashrc ~/
+cp ~/Arch_config/.gtkrc-2.0 ~/
+cp ~/Arch_config/.i3blocks.conf ~/
+mkdir -p ~/.config/i3/
+cp ~/Arch_config/.config/i3/config ~/.config/i3/
+cp ~/Arch_config/.config/compton.conf ~/.config/
+sudo cp ~/Arch_config/usr/lib/i3blocks/* /usr/lib/i3blocks/
+
+sudo cp Arch_config/etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+
+sudo cp -rf ~/Arch_config/bin/* /usr/local/bin/
+sudo cp -rf ~/Arch_config/etc/systemd/system/lock.service /etc/systemd/system/
+sudo systemctl enable lock.service
+
+# Download wallpaper
+sudo wget https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2936.png -P /usr/share/pixmaps/
+
+# fstab nfs mount
+sudo mkdir /mnt/nas
+sudo sh -c "cat >> /etc/fstab" <<EOT
+
+//192.168.0.250/data /mnt/nas cifs noauto,x-systemd.automount,guest,sec=ntlm 0 0
+EOT
+
+# sudo rules
+echo "%wheel ALL = NOPASSWD:/usr/local/bin/togglebluetooth.sh"| sudo tee -a /etc/sudoers.d/myOverrides
