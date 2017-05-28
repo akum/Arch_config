@@ -23,7 +23,6 @@ cp /usr/lib/i3blocks/brightness $git_folder/usr/lib/i3blocks/
 cp /etc/default/grub               $git_folder/etc/default/
 cp /etc/mkinitcpio.conf            $git_folder/etc/
 cp /etc/$service/lock.service      $git_folder/etc/$service/
-cp /etc/plymouth/plymouthd.conf    $git_folder/etc/plymouth/
 cp /etc/lightdm/lightdm-gtk-*.conf $git_folder/etc/lightdm/
 
 cp $local_bin/toggletouchpad.sh  $git_folder/bin/
