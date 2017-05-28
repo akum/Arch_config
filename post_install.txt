@@ -18,10 +18,11 @@ sudo sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
 sudo pacman -Sy
 
 # Install xorg
-sudo pacman --noconfirm -S xorg-server xorg-xrdb
+sudo pacman --noconfirm -S xorg-server xorg-xrdb arandr
 
 # Install Vbox guess tools
 sudo pacman --noconfirm -S virtualbox-guest-utils virtualbox-guest-modules-arch
+sudo systemctl enable vboxservice.service
 
 # Install login manager
 sudo pacman --noconfirm -S lightdm lightdm-gtk-greeter
