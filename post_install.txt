@@ -32,7 +32,10 @@ sudo sed -i 's/example-gtk-gnome/lightdm-gtk-greeter/' /etc/lightdm/lightdm.conf
 sudo sed -i '/^#.*lightdm-gtk-greeter/s/^#//' /etc/lightdm/lightdm.conf
 
 # Install i3
-pacaur --noedit --noconfirm -S i3-gaps i3blocks rofi base16-git rxvt-unicode urxvt-perls ttf-dejavu ttf-font-awesome numix-gtk-theme lxappearance-gtk3 vibrancy-colors compton
+pacaur --noedit --noconfirm -S i3-gaps i3blocks rofi base16-git rxvt-unicode urxvt-perls ttf-dejavu
+
+# Install theme
+pacaur --noedit --noconfirm -S ttf-font-awesome numix-gtk-theme lxappearance-gtk3 vibrancy-colors compton
 
 # Copy files
 git clone https://github.com/s-monette/Arch_config.git
