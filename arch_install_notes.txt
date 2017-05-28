@@ -86,7 +86,7 @@ bootctl --path=/boot install
 # Create EFI boot entry
 cat > /boot/loader/loader.conf <<EOT
 default  arch
-timeout  4
+timeout  1
 editor   0
 EOT
 
