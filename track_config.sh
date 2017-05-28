@@ -28,4 +28,9 @@ cp /etc/lightdm/lightdm-gtk-*.conf $git_folder/etc/lightdm/
 cp $local_bin/toggletouchpad.sh  $git_folder/bin/
 cp $local_bin/togglebluetooth.sh $git_folder/bin/
 
+~/.atom/styles.less $git_folder/.atom/
+~/.atom/keymap.cson $git_folder/.atom/
+~/.atom/config.cson $git_folder/.atom/
+~/.atom/packages $git_folder/.atom/
+
 pacman -Qqe > $git_folder/package_list.txt
