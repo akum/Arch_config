@@ -1,0 +1,21 @@
+"*":
+  "base16-syntax":
+    scheme: "Atelier Forest"
+  core:
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "base16-syntax"
+    ]
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    showInvisibles: true
+    softWrap: true
+    tabLength: 4
+    tabType: "soft"
+  "exception-reporting":
+    userId: "4fc1f14d-e3b7-253a-62f0-e81e9f5802ab"
+  "tree-view": {}
+  welcome:
+    showOnStartup: false
