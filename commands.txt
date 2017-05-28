@@ -19,8 +19,19 @@ sudo sed -i -e'/^#\[multilib\]/{s/#//;N;s/#//;N;s/#//}' /etc/pacman.conf
 # Install packages
 git clone https://github.com/akum/Arch_config.git
 packer -Sy $(cat ~/Arch_config/package_list.txt)
+
+# Copy files
 cp ~/Arch_config/.Xresources ~/
-cp -rf ~/Arch_config/.config ~/
+xrdb ~/.Xresources
+cp ~/Arch_config/.config ~/
+cp ~/Arch_config/.toprc ~/
+cp ~/Arch_config/.bashrc ~/
+cp ~/Arch_config/.gtkrc-2.0 ~/
+cp ~/Arch_config/.i3blocks.conf ~/
+cp ~/Arch_config/.config/i3/config ~/.config/i3/config
+cp ~/Arch_config/.config/compton.conf ~/.config/
+sudo cp ~/Arch_config/usr/lib/i3blocks/* /usr/lib/i3blocks/
+
 sudo cp -rf ~/Arch_config/bin/* /usr/local/bin/
 sudo cp -rf ~/Arch_config/etc/systemd/system/lock.service /etc/systemd/system/
 sudo systemctl enable lock.service
