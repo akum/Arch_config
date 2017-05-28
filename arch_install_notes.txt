@@ -6,9 +6,21 @@ passwd
 timedatectl set-ntp true
 
 # Create partitions
-cgdisk /dev/sdX
-1 100MB EFI partition # Hex code ef00
-2 100% size partiton # (to be encrypted) Hex code 8300
+fdisk /dev/sda <<EOF
+g # Create a new empty GPT partition table
+n # Add a new EFI partition of 100M
+
+
++100M
+t # Change a partition type to "EFI System"
+1
+
+n # Add a new Linux partition with all of the remaining free space
+
+
+
+w # Write table to disk and exit
+EOF
 
 # Format partions
 mkfs.vfat -F32 /dev/sda1
@@ -24,7 +36,7 @@ grep -A1 --no-group-separator Canada /etc/pacman.d/mirrorlist > /etc/pacman.d/mi
 rankmirrors -n 6 /etc/pacman.d/mirrorlist.backup > /etc/pacman.d/mirrorlist
 
 # Install the system
-pacstrap /mnt base base-devel grub efibootmgr wget openssh
+pacstrap /mnt base base-devel openssh
 
 # Generate the fstab file
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -39,7 +51,7 @@ systemctl enable dhcpcd@enp0s3.service
 systemctl enable sshd
 
 # Setup system clock
-ln -s /usr/share/zoneinfo/EST5EDT /etc/localtime
+ln -sf /usr/share/zoneinfo/EST5EDT /etc/localtime
 hwclock --systohc --utc
 
 # Set the hostname
@@ -59,19 +71,34 @@ user=CHANGE_ME
 useradd -m -g users -G wheel $user
 passwd $user
 
+# Enable sudo for wheel users
+sed -i '/^#.* %wheel ALL=(ALL) NOPASSWD: ALL/s/^#//' /etc/sudoers
+
 # Configure mkinitcpio with modules needed for the initrd image
-nano /etc/mkinitcpio.conf
-uncomment "lz4"
+sed -i '/^#.*COMPRESSION="lz4"/s/^#//' /etc/mkinitcpio.conf
 
 # Regenerate initrd image
 mkinitcpio -p linux
 
 # Install bootloader
-grub-install /dev/sda --target=x86_64-efi --efi-directory=/boot
-grub-mkconfig -o /boot/grub/grub.cfg
+bootctl --path=/boot install
+
+# Create EFI boot entry
+cat > /boot/loader/loader.conf <<EOT
+default  arch
+timeout  4
+editor   0
+EOT
+
+cat > /boot/loader/entries/arch.conf <<EOT
+title    Arch Linux
+linux    /vmlinuz-linux
+initrd   /initramfs-linux.img
+options  root=PARTUUID=$(blkid -s PARTUUID -o value /dev/sda2) rw
+EOT
 
 # Configure Bootloader for VirtualBox
-cp /boot/EFI/arch/grubx64.efi /boot/EFI/boot/bootx64.efi
+cp /boot/EFI/systemd/systemd-bootx64.efi /boot/EFI/boot/bootx64.efi
 
 # Exit new system and go into the cd shell
 exit
