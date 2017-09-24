@@ -1,0 +1,69 @@
+# Install Ubuntu 16.04 Desktop
+
+# Install atom
+wget https://github.com/atom/atom/releases/download/v1.20.1/atom-amd64.deb
+sudo apt-get  install -y ./atom-amd64.deb
+
+# Install Gitkraken
+wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
+sudo dpkg -i gitkraken-amd64.deb
+
+# Install i3wm gaps
+
+# Install libxcb-xrm-dev from a PPA
+sudo add-apt-repository -y ppa:aguignard/ppa
+sudo apt-get update
+
+# Install build dependencies
+sudo apt install -y libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev \
+    libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev \
+    libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev \
+    libxkbcommon-x11-dev autoconf libxcb-xrm-dev
+
+# Checkout code
+git clone https://www.github.com/Airblader/i3 i3-gaps
+cd i3-gaps
+
+# Compile and install
+autoreconf --force --install
+rm -rf build/
+mkdir -p build
+ cd build/
+../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
+make -j4
+sudo make install
+cd
+
+# Install i3 extra
+sudo apt install -y i3lock i3status rofi compton fonts-font-awesome cmus notification-daemon feh
+
+# Keyboard settings
+exec --no-startup-id "setxkbmap -layout 'us,ca(multix)' -option grp:ctrl_alt_toggle"
+
+# i3blocks-gaps
+git clone https://github.com/Airblader/i3blocks-gaps.git i3blocks-gaps
+cd i3blocks-gaps
+make clean all
+sudo make install
+sudo mkdir -p /usr/lib/i3blocks
+cd
+
+# Base16 colors
+sudo git clone https://github.com/chriskempson/base16-xresources.git /usr/share/base16/
+# /usr/share/base16/xresources/base16-atelier-forest-256.Xresources
+
+# urxvt
+sudo apt install -y rxvt-unicode-256color xsel xclip
+# URxvt*perl-ext-common:default,clipboard,clipboard-paste-on-right-click
+sudo wget https://raw.githubusercontent.com/muennich/urxvt-perls/master/deprecated/clipboard -P /usr/lib/urxvt/perl
+sudo wget https://raw.githubusercontent.com/shyiko/urxvt-clipboard-paste-on-right-click/master/clipboard-paste-on-right-click -P /usr/lib/urxvt/perl
+
+# Get files
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.Xresources
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.i3blocks.conf
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.config/compton.conf -P .config
+
+sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/vol -P /usr/lib/i3blocks
+sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/cmus -P /usr/lib/i3blocks
+sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/simplecal -P /usr/lib/i3blocks
+sudo chmod +x /usr/lib/i3blocks/*
