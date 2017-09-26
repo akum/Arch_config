@@ -38,7 +38,7 @@ for_window [window_role="task_dialog"] floating enable
 # Default behavior for apps
 for_window [title="Calendar"] floating enable
 for_window [title="Steam - Update News"] kill
-for_window [title="(?i)steam$"] move to workspace $ws5
+for_window [title="(?i)steam$"] move to workspace 5
 for_window [title="(?i)Instant Messenger - Chromium$"] floating disable
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -54,10 +54,10 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # Start program launcher (rofi)
-bindsym $mod+d exec rofi -show run -bw 0
+bindsym $mod+d exec "rofi -show combi -combi-modi run,ssh -modi combi"
 
 # Launch file manager (nautilus)
-bindsym $mod+e exec nautilus
+bindsym $mod+e exec nautilus --no-desktop
 
 # Change focus
 bindsym $mod+Left focus left
