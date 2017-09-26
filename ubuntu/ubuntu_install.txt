@@ -14,7 +14,7 @@ sudo apt-get update
 sudo apt-get install -y i3 i3blocks-gaps
 
 # Install extra packages
-sudo apt install -y rofi compton fonts-font-awesome cmus notification-daemon feh git
+sudo apt install -y rofi compton fonts-font-awesome cmus notification-daemon feh git curl
 
 # urxvt
 sudo apt-get install -y rxvt-unicode-256color xsel xclip
