@@ -25,11 +25,16 @@ sudo wget https://raw.githubusercontent.com/muennich/urxvt-perls/master/deprecat
 sudo wget https://raw.githubusercontent.com/shyiko/urxvt-clipboard-paste-on-right-click/master/clipboard-paste-on-right-click -P /usr/lib/urxvt/perl
 
 # Get files
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.Xresources
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.i3blocks.conf
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.config/compton.conf -P .config
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.Xresources -O .Xresources
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.i3blocks.conf -O .i3blocks.conf
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.config/compton.conf -O .config/compton.conf
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.config/i3/config -O .config/i3/config
 
+# i3block file
 sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/vol -P /usr/lib/i3blocks
 sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/cmus -P /usr/lib/i3blocks
 sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/simplecal -P /usr/lib/i3blocks
 sudo chmod +x /usr/lib/i3blocks/*
+
+# Download wallpaper
+sudo wget https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2936.png -P /usr/share/pixmaps/
