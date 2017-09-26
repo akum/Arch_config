@@ -27,7 +27,7 @@ set_from_resource $colorless   color00 #000000
 client.focused          $yellow     $yellow     $darkblack  $yellow     $yellow
 client.unfocused        $colorless  $darkblack  $white      $darkblack  $darkblack
 client.focused_inactive $yellow     $darkblack  $white      $darkblack  $darkblack
-client.urgent           $red        $red        $darkblack  $yellow    	$yellow
+client.urgent           $red        $red        $darkblack  $yellow     $yellow
 client.background       $darkblack
 
 # Default behavior for system
