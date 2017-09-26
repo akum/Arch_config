@@ -2,7 +2,7 @@
 
 # Install Atom
 wget https://github.com/atom/atom/releases/download/v1.20.1/atom-amd64.deb
-sudo apt-get  install -y ./atom-amd64.deb
+sudo apt-get install -y ./atom-amd64.deb
 
 # Install Gitkraken
 wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
@@ -11,24 +11,21 @@ sudo dpkg -i gitkraken-amd64.deb
 # Install i3wm gaps
 sudo add-apt-repository -y ppa:simon-monette/i3-gaps
 sudo apt-get update
-sudo apt-get i3 i3blocks-gaps
+sudo apt-get install -y i3 i3blocks-gaps
 
-# Install i3 extra
-sudo apt install -y rofi compton fonts-font-awesome cmus notification-daemon feh
-
-# Base16 colors
-sudo git clone https://github.com/chriskempson/base16-xresources.git /usr/share/base16/
+# Install extra packages
+sudo apt install -y rofi compton fonts-font-awesome cmus notification-daemon feh git
 
 # urxvt
-sudo apt install -y rxvt-unicode-256color xsel xclip
+sudo apt-get install -y rxvt-unicode-256color xsel xclip
 sudo wget https://raw.githubusercontent.com/muennich/urxvt-perls/master/deprecated/clipboard -O /usr/lib/urxvt/perl/clipboard
 sudo wget https://raw.githubusercontent.com/shyiko/urxvt-clipboard-paste-on-right-click/master/clipboard-paste-on-right-click -O /usr/lib/urxvt/perl/clipboard-paste-on-right-click
 
 # Get config files
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.Xresources -O .Xresources
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.i3blocks.conf -O .i3blocks.conf
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.config/compton.conf -O .config/compton.conf
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.config/i3/config -O .config/i3/config
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.Xresources -O ~/.Xresources
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.i3blocks.conf -O ~/.i3blocks.conf
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.config/compton.conf -O ~/.config/compton.conf
+curl https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.config/i3/config --create-dirs -o ~/.config/i3/config
 
 # i3block file
 sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/vol -P /usr/lib/i3blocks
@@ -37,5 +34,6 @@ sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib
 sudo chmod +x /usr/lib/i3blocks/*
 
 # Theme files
+sudo git clone https://github.com/chriskempson/base16-xresources.git /usr/share/base16/
 sudo wget https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2936.png -P /usr/share/pixmaps/
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.gtkrc-2.0 -O .gtkrc-2.0
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.gtkrc-2.0 -O ~/.gtkrc-2.0
