@@ -24,7 +24,7 @@ URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
 URxvt*perl-ext-common:default,clipboard,clipboard-paste-on-right-click
-URxvt.cutchars: ""''&()*,;<=>?@[]{|}.:+-
+URxvt.cutchars: ""''&()*,;<=>?@[]{|}.:+
 
 ! urxvt clipboard settings
 URxvt*iso14755: False
