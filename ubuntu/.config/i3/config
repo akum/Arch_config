@@ -54,7 +54,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # Start program launcher (rofi)
-bindsym $mod+d exec "rofi -show combi -combi-modi run,ssh -modi combi"
+bindsym $mod+d exec "rofi -bw 0 -show combi -combi-modi run,ssh -modi combi"
 
 # Launch file manager (nautilus)
 bindsym $mod+e exec nautilus --no-desktop
