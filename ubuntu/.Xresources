@@ -1,9 +1,10 @@
 #include "/usr/share/base16/xresources/base16-atelier-forest-256.Xresources"
 
-#define bgc base00
+#define bgc background
 #define fgc foreground
 #define hlc base0A
-#define transparent  argb:00000000
+! Custom transparent color
+*.color00: #00000000
 
 Xft.dpi:        96
 Xft.antialias:  true
@@ -38,10 +39,10 @@ rofi*modi: run
 rofi*lines: 10
 
 ! element          bg            fg   altbg         hlbg hlfg
-rofi*color-normal: transparent, hlc, transparent, hlc, bgc
-rofi*color-urgent: transparent, hlc, transparent, hlc, bgc
-rofi*color-active: transparent, hlc, transparent, hlc, bgc
-rofi*color-window: transparent
+rofi*color-normal: argb:color00, hlc, argb:color00, hlc, bgc
+rofi*color-urgent: argb:color00, hlc, argb:color00, hlc, bgc
+rofi*color-active: argb:color00, hlc, argb:color00, hlc, bgc
+rofi*color-window: argb:color00
 rofi*bw: 0
 rofi*padding: 50
 rofi*fuzzy: false
