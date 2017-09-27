@@ -24,7 +24,7 @@ sudo wget https://raw.githubusercontent.com/shyiko/urxvt-clipboard-paste-on-righ
 # Get config files
 wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.Xresources -O ~/.Xresources
 wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.i3blocks.conf -O ~/.i3blocks.conf
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.config/compton.conf -O ~/.config/compton.conf
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.config/compton.conf -O ~/.config/compton.conf
 curl https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.config/i3/config --create-dirs -o ~/.config/i3/config
 
 # i3block file
