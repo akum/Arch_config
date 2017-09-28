@@ -36,4 +36,5 @@ sudo chmod +x /usr/lib/i3blocks/*
 # Theme files
 sudo git clone https://github.com/chriskempson/base16-xresources.git /usr/share/base16/
 sudo wget https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2936.png -P /usr/share/pixmaps/
+wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.toprc -O ~/.toprc
 wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.gtkrc-2.0 -O ~/.gtkrc-2.0
