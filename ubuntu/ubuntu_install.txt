@@ -7,6 +7,10 @@ git_url="https://raw.githubusercontent.com/s-monette/Arch_config/master"
 wget --content-disposition https://sourceforge.net/projects/davmail/files/davmail/4.8.0/davmail_4.8.0.3-2488-1_all.deb/download
 sudo apt-get install -f ./davmail_4.8.0.3-2488-1_all.deb xul-ext-lightning
 wget git_url/ubuntu/.davmail.properties -O ~/.davmail.properties
+# Config link:
+# http://davmail.sourceforge.net/thunderbirdmailsetup.html
+# http://davmail.sourceforge.net/thunderbirdcalendarsetup.html
+# http://davmail.sourceforge.net/thunderbirddirectorysetup.html
 
 # Install Atom
 wget https://github.com/atom/atom/releases/download/v1.20.1/atom-amd64.deb
