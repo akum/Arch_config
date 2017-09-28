@@ -231,6 +231,10 @@ bindsym XF86AudioPrev exec cmus-remote -r
 bindsym XF86AudioNext exec cmus-remote -n
 bindsym XF86AudioPlay exec cmus-remote -u
 
+# Screenshot
+bindsym --release Print exec "gnome-screenshot -a"
+bindsym --release Shift+Print exec "gnome-screenshot -i"
+
 # Autostart
 exec --no-startup-id "setxkbmap -layout 'us,ca(multix)' -option grp:ctrl_alt_toggle"
 exec --no-startup-id feh --bg-fill /usr/share/pixmaps/wallhaven-2936.png
