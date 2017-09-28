@@ -1,9 +1,12 @@
 # Install Ubuntu 16.04 Desktop
 
-# Thunderbird + davmail
+# Variable
+git_url="https://raw.githubusercontent.com/s-monette/Arch_config/master"
+
+# Thunderbird + lightning + davmail
 wget --content-disposition https://sourceforge.net/projects/davmail/files/davmail/4.8.0/davmail_4.8.0.3-2488-1_all.deb/download
 sudo apt-get install -f ./davmail_4.8.0.3-2488-1_all.deb xul-ext-lightning
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.davmail.properties -O ~/.davmail.properties
+wget git_url/ubuntu/.davmail.properties -O ~/.davmail.properties
 
 # Install Atom
 wget https://github.com/atom/atom/releases/download/v1.20.1/atom-amd64.deb
@@ -27,19 +30,19 @@ sudo wget https://raw.githubusercontent.com/muennich/urxvt-perls/master/deprecat
 sudo wget https://raw.githubusercontent.com/shyiko/urxvt-clipboard-paste-on-right-click/master/clipboard-paste-on-right-click -O /usr/lib/urxvt/perl/clipboard-paste-on-right-click
 
 # Get config files
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.Xresources -O ~/.Xresources
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.i3blocks.conf -O ~/.i3blocks.conf
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.config/compton.conf -O ~/.config/compton.conf
-curl https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.config/i3/config --create-dirs -o ~/.config/i3/config
+wget git_url/ubuntu/.Xresources -O ~/.Xresources
+wget git_url/.i3blocks.conf -O ~/.i3blocks.conf
+wget git_url/ubuntu/.config/compton.conf -O ~/.config/compton.conf
+curl git_url/ubuntu/.config/i3/config --create-dirs -o ~/.config/i3/config
 
 # i3block file
-sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/vol -P /usr/lib/i3blocks
-sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/cmus -P /usr/lib/i3blocks
-sudo wget https://raw.githubusercontent.com/s-monette/Arch_config/master/usr/lib/i3blocks/simplecal -P /usr/lib/i3blocks
+sudo wget git_url/usr/lib/i3blocks/vol -P /usr/lib/i3blocks
+sudo wget git_url/usr/lib/i3blocks/cmus -P /usr/lib/i3blocks
+sudo wget git_url/usr/lib/i3blocks/simplecal -P /usr/lib/i3blocks
 sudo chmod +x /usr/lib/i3blocks/*
 
 # Theme files
 sudo git clone https://github.com/chriskempson/base16-xresources.git /usr/share/base16/
 sudo wget https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2936.png -P /usr/share/pixmaps/
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/.toprc -O ~/.toprc
-wget https://raw.githubusercontent.com/s-monette/Arch_config/master/ubuntu/.gtkrc-2.0 -O ~/.gtkrc-2.0
+wget git_url/.toprc -O ~/.toprc
+wget git_url/ubuntu/.gtkrc-2.0 -O ~/.gtkrc-2.0
