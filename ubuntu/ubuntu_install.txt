@@ -1,5 +1,9 @@
 # Install Ubuntu 16.04 Desktop
 
+# Thunderbird + davmail
+wget --content-disposition https://sourceforge.net/projects/davmail/files/davmail/4.8.0/davmail_4.8.0.3-2488-1_all.deb/download
+sudo apt-get install -f ./davmail_4.8.0.3-2488-1_all.deb xul-ext-lightning
+
 # Install Atom
 wget https://github.com/atom/atom/releases/download/v1.20.1/atom-amd64.deb
 sudo apt-get install -y ./atom-amd64.deb
