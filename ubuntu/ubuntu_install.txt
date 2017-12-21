@@ -34,19 +34,19 @@ sudo wget https://raw.githubusercontent.com/muennich/urxvt-perls/master/deprecat
 sudo wget https://raw.githubusercontent.com/shyiko/urxvt-clipboard-paste-on-right-click/master/clipboard-paste-on-right-click -O /usr/lib/urxvt/perl/clipboard-paste-on-right-click
 
 # Get config files
-wget git_url/ubuntu/.Xresources -O ~/.Xresources
-wget git_url/.i3blocks.conf -O ~/.i3blocks.conf
-wget git_url/ubuntu/.config/compton.conf -O ~/.config/compton.conf
-curl git_url/ubuntu/.config/i3/config --create-dirs -o ~/.config/i3/config
+wget $git_url/ubuntu/.Xresources -O ~/.Xresources
+wget $git_url/.i3blocks.conf -O ~/.i3blocks.conf
+wget $git_url/ubuntu/.config/compton.conf -O ~/.config/compton.conf
+curl $git_url/ubuntu/.config/i3/config --create-dirs -o ~/.config/i3/config
 
 # i3block file
-sudo wget git_url/usr/lib/i3blocks/vol -P /usr/lib/i3blocks
-sudo wget git_url/usr/lib/i3blocks/cmus -P /usr/lib/i3blocks
-sudo wget git_url/usr/lib/i3blocks/simplecal -P /usr/lib/i3blocks
+sudo wget $git_url/usr/lib/i3blocks/vol -P /usr/lib/i3blocks
+sudo wget $git_url/usr/lib/i3blocks/cmus -P /usr/lib/i3blocks
+sudo wget $git_url/usr/lib/i3blocks/simplecal -P /usr/lib/i3blocks
 sudo chmod +x /usr/lib/i3blocks/*
 
 # Theme files
 sudo git clone https://github.com/chriskempson/base16-xresources.git /usr/share/base16/
 sudo wget https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-2936.png -P /usr/share/pixmaps/
-wget git_url/.toprc -O ~/.toprc
-wget git_url/ubuntu/.gtkrc-2.0 -O ~/.gtkrc-2.0
+wget $git_url/.toprc -O ~/.toprc
+wget $git_url/ubuntu/.gtkrc-2.0 -O ~/.gtkrc-2.0
