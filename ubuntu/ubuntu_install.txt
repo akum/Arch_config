@@ -33,6 +33,7 @@ sudo apt-get install -y rxvt-unicode-256color xsel xclip
 sudo wget https://raw.githubusercontent.com/muennich/urxvt-perls/master/deprecated/clipboard -O /usr/lib/urxvt/perl/clipboard
 sudo wget https://raw.githubusercontent.com/shyiko/urxvt-clipboard-paste-on-right-click/master/clipboard-paste-on-right-click -O /usr/lib/urxvt/perl/clipboard-paste-on-right-click
 sudo wget https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size -O /usr/lib/urxvt/perl/font-size
+sudo wget https://raw.githubusercontent.com/muennich/urxvt-perls/master/keyboard-select -O /usr/lib/urxvt/perl/keyboard-select
 
 # Get config files
 wget $git_url/ubuntu/.Xresources -O ~/.Xresources
