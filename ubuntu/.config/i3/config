@@ -111,6 +111,8 @@ bindsym $mod+c focus child
 # Hide the window titlebar
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
+bindsym $mod+t exec "i3-msg border normal; sleep 2s; i3-msg border pixel"
+
 
 # Switch to workspace
 bindsym $mod+1 workspace 1
