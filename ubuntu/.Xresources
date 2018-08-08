@@ -29,7 +29,7 @@ URxvt*scrollTtyKeypress: true
 !URxvt*perl-ext-common:default,clipboard,clipboard-paste-on-right-click,selection-to-clipboard
 URxvt*perl-ext-common:default,clipboard,clipboard-paste-on-right-click
 URxvt*cutchars: ""''&()*,;<=>?@[]{|}.:+
-Urxvt*saveLines: 1000000
+URxvt*saveLines: 1000000
 
 ! urxvt clipboard settings
 URxvt*iso14755: False
