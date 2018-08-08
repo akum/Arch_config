@@ -32,6 +32,7 @@ sudo apt install -y rofi compton fonts-font-awesome cmus notification-daemon feh
 sudo apt-get install -y rxvt-unicode-256color xsel xclip
 sudo wget https://raw.githubusercontent.com/muennich/urxvt-perls/master/deprecated/clipboard -O /usr/lib/urxvt/perl/clipboard
 sudo wget https://raw.githubusercontent.com/shyiko/urxvt-clipboard-paste-on-right-click/master/clipboard-paste-on-right-click -O /usr/lib/urxvt/perl/clipboard-paste-on-right-click
+sudo wget https://raw.githubusercontent.com/majutsushi/urxvt-font-size/master/font-size -O /usr/lib/urxvt/perl/font-size
 
 # Get config files
 wget $git_url/ubuntu/.Xresources -O ~/.Xresources
