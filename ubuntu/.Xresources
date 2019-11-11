@@ -26,10 +26,20 @@ URxvt*cursorBlink: true
 URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
-!URxvt*perl-ext-common:default,clipboard,clipboard-paste-on-right-click,selection-to-clipboard
+!URxvt*perl-ext-common:default,clipboard,clipboard-paste-on-right-click,selection-to-clipboard,font-size,keyboard-select
 URxvt*perl-ext-common:default,clipboard,clipboard-paste-on-right-click
 URxvt*cutchars: ""''&()*,;<=>?@[]{|}.:+
-Urxvt*saveLines: 1000000
+URxvt*saveLines: 1000000
+
+! font-size settings
+URxvt*keysym.C-minus: perl:font-size:decrease
+URxvt*keysym.C-equal: perl:font-size:increase
+URxvt*keysym.C-plus:  perl:font-size:reset
+
+! keyboard-select
+URxvt*searchable-scrollback: keysym
+URxvt.keysym.M-space: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
 
 ! urxvt clipboard settings
 URxvt*iso14755: False

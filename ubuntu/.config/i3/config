@@ -58,6 +58,9 @@ bindsym $mod+Shift+q kill
 # Start program launcher (rofi)
 bindsym $mod+d exec "rofi -bw 0 -show combi -combi-modi run,ssh -modi combi -ssh-client autossh"
 
+# Start clipboard manager (clipmenu)
+bindsym $mod+backslash exec CM_LAUNCHER=rofi clipmenu
+
 # Launch file manager (nautilus)
 bindsym $mod+e exec nautilus --no-desktop
 
@@ -111,6 +114,8 @@ bindsym $mod+c focus child
 # Hide the window titlebar
 for_window [class="^.*"] border pixel 1
 new_window 1pixel
+bindsym $mod+t exec "i3-msg border normal; sleep 2s; i3-msg border pixel"
+
 
 # Switch to workspace
 bindsym $mod+1 workspace 1
@@ -256,3 +261,4 @@ exec --no-startup-id xautolock -time 15 -locker 'i3lock-wrapper'
 exec --no-startup-id /usr/lib/notification-daemon
 exec --no-startup-id xset dpms 600
 exec --no-startup-id xautolock -time 10 -locker gnome-screensaver-command -l
+exec --no-startup-id clipmenud
