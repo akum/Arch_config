@@ -1,19 +1,22 @@
-#include "/usr/share/base16/xresources/base16-atelierforest.dark.256.xresources"
+#include "/usr/share/base16/xresources/base16-atelier-forest-256.Xresources"
 
-#define bgc background
+#define bgc base00
 #define fgc foreground
 #define hlc base0A
 ! Custom transparent color
-*.color00: #00000000
+*.00000000: 00000000
 
 Xft.dpi:        96
 Xft.antialias:  true
 Xft.rgba:       rgb
 Xft.lcdfilter:  lcddefault
+Xft.autohint: 0
 Xft.hinting:    true
-Xft.hintstyle:  hintfull
+Xft.hintstyle:  hintslight
 URxvt.lineSpace: 1
+URxvt.termName: rxvt-unicode-256color
 
+URxvt.perl-lib: /usr/lib/urxvt/perl/
 ! URxvt*font: xft:DejaVu Sans Mono:pixelsize=15
 URxvt*font:xft:DejaVu\ Sans\ Mono:pixelsize=14:antialias=true,xft:DejaVu\ Sans\ Mono:pixelsize=14:antialias=true
 URxvt*scrollBar: false
@@ -23,26 +26,40 @@ URxvt*cursorBlink: true
 URxvt*scrollTtyOutput:   false
 URxvt*scrollWithBuffer:  true
 URxvt*scrollTtyKeypress: true
-URxvt*perl-ext-common:default,clipboard
-URxvt.cutchars: ""''&()*,;<=>?@[]{|}.:+-
+!URxvt*perl-ext-common:default,clipboard,clipboard-paste-on-right-click,selection-to-clipboard
+URxvt*perl-ext-common:default,clipboard,clipboard-paste-on-right-click,font-size,keyboard-select
+URxvt*cutchars: ""''&()*,;<=>?@[]{|}.:+
+URxvt*saveLines: 1000000
+
+! font-size settings
+URxvt*keysym.C-minus: perl:font-size:decrease
+URxvt*keysym.C-equal: perl:font-size:increase
+URxvt*keysym.C-plus:  perl:font-size:reset
+
+! keyboard-select
+URxvt*searchable-scrollback: keysym
+URxvt.keysym.M-space: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
 
 ! urxvt clipboard settings
 URxvt*iso14755: False
-URxvt*keysym.Shift-Control-C: perl:clipboard:copy
-URxvt*keysym.Shift-Control-V: perl:clipboard:paste
+!URxvt*keysym.Shift-Control-C: perl:clipboard:copy
+!URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 URxvt*clipboard.autocopy: true
-URxvt*clipboard.copycmd: xsel -ib
-URxvt*clipboard.pastecmd: xsel -ob
+!URxvt*clipboard.copycmd: xsel -ib
+!URxvt*clipboard.pastecmd: xsel -ob
+URxvt*clipboard.copycmd: xclip -i -selection clipboard
+URxvt*clipboard.pastecmd: xclip -o -selection clipboard
 
 ! rofi settings
 rofi*modi: run
 rofi*lines: 10
 
 ! element          bg            fg   altbg         hlbg hlfg
-rofi*color-normal: argb:color00, hlc, argb:color00, hlc, bgc
-rofi*color-urgent: argb:color00, hlc, argb:color00, hlc, bgc
-rofi*color-active: argb:color00, hlc, argb:color00, hlc, bgc
-rofi*color-window: argb:color00
+rofi*color-normal: argb:00000000, hlc, argb:00000000, hlc, bgc
+rofi*color-urgent: argb:00000000, hlc, argb:00000000, hlc, bgc
+rofi*color-active: argb:00000000, hlc, argb:00000000, hlc, bgc
+rofi*color-window: argb:00000000
 rofi*bw: 0
 rofi*padding: 50
 rofi*fuzzy: false

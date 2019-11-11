@@ -1,0 +1,26 @@
+#!/bin/bash
+
+format() {
+    raw="$(upower --dump | sed -n '/Wireless Mouse MX Master/,/^$/p')"
+    status="$(echo "$raw" | awk '/state/{print $2}')"
+    percent="$(echo "$raw" | awk '/percentage/{print $2}' | tr -d \%)"
+
+    if [[ $status =~ discharging|fully-charged ]]; then 
+        if [ $percent -le 10 ]; then
+            icon='';
+        elif [ $percent -le 25 ]; then
+            icon=''
+        elif [ $percent -le 50 ]; then
+            icon=''
+        elif [ $percent -le 75 ]; then
+            icon=''
+        elif [ $percent -le 100 ]; then
+            icon=''
+        fi
+    else
+        icon=''
+    fi
+        echo "$icon ${percent}%"
+}
+
+format
